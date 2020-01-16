@@ -1,0 +1,9 @@
+name: dartle
+description: A code generator for dartle protos.
+version: 0.0.1
+
+dependencies:
+  args: 1.5.2
+  protobuf: 1.0.0
+  meta: 1.1.8
+  path:
