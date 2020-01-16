@@ -1,0 +1,10 @@
+syntax = "proto3";
+package google.flutter;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.ServiceOptions {
+  // Specifies the name of the platform channel.
+  // If omitted, no platform channel code is generated.
+  string channel_name = 50005;
+}

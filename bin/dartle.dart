@@ -9,7 +9,7 @@ import 'package:path/path.dart' as path;
 
 class GenCommand extends Command {
   final name = 'gen';
-  final description = 'Record changes to the repository.';
+  final description = 'Platform channel generator for .proto files.';
 
   GenCommand() {
     argParser.addOption(
@@ -58,10 +58,12 @@ class GenCommand extends Command {
 
     var protocBinary = path.join(path.dirname(Platform.script.path), 'osx_x86_64', 'protoc');
     var protocPlugin = path.join(path.dirname(Platform.script.path), 'protoc_plugin');
+    var protosPath = path.join(path.dirname(path.dirname(Platform.script.path)), 'protos');
     var result = await Process.run(
       protocBinary, [
         path.basename(protoFile.path),
         '--proto_path', protoFile.parent.absolute.path,
+        '--proto_path', protosPath,
         '--plugin', 'protoc-gen-custom=$protocPlugin',
         '--custom_out', outDirectory.absolute.path,
       ]);

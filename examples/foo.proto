@@ -1,8 +1,0 @@
-syntax = "proto2";
-
-package foo;
-
-message SampleMessage {
-  optional string foo = 1;
-  optional string bar = 2;
-}
